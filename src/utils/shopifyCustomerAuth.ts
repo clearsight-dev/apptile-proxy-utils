@@ -13,6 +13,9 @@ export const getShopifyCustomer = async (
   customerAccessToken: string,
   shopifyShopId: string
 ): Promise<IShopifyCustomerDetails> => {
+  // Based on assumption that all customer access tokens generated from Shopify's Customer Account API start with `shcat`
+  // If this format changes in the future, we should update this library to handle the updated format,
+  // and update the package version in the proxies using this package
   if (customerAccessToken.startsWith('shcat')) {
     // New Customer Account API
     const numericShopId = extractIdFromShopifyId(shopifyShopId);
@@ -63,8 +66,8 @@ export const getShopifyCustomer = async (
     const customer = responseBody.data.customer;
     return {
       id: customer.id,
-      firstName: customer.firstName,
-      lastName: customer.lastName,
+      firstName: customer.firstName || '',
+      lastName: customer.lastName || '',
       acceptsMarketing: customer.emailAddress?.marketingState === 'SUBSCRIBED',
       email: customer.emailAddress?.emailAddress,
       phone: customer.phoneNumber?.phoneNumber || null
