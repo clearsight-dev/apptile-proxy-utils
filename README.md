@@ -1,4 +1,4 @@
-# apptile-backend-utils
+# apptile-proxy-utils
 
 apptile-proxy-utils is a collection of all common util functions and middlewares which are commonly used across all our proxies services.
 
