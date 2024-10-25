@@ -1,5 +1,5 @@
-const aaa = "";
+import { getShopifyCustomer } from './utils/shopifyCustomerAuth';
 
 export {
-  aaa
+  getShopifyCustomer,
 };
