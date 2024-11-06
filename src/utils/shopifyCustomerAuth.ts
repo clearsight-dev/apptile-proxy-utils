@@ -24,8 +24,8 @@ export const getShopifyCustomer = async (
     }
 
     const response = await axios.post(
-      // Using 2024-07 verison API, update later if required
-      `https://shopify.com/${numericShopId}/account/customer/api/2024-07/graphql`,
+      // Using 2024-10 verison API, update later if required
+      `https://shopify.com/${numericShopId}/account/customer/api/2024-10/graphql`,
       {
         query: `
           query customerDetails {
